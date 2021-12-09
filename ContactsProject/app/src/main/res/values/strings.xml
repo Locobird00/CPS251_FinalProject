@@ -7,6 +7,10 @@
     <string name="asc_string">Asc</string>
     <string name="desc_string">Desc</string>
 
+    <string name="incomplete_info_string">You must enter a name and phone</string>
+    <string name="find_input">You must enter a name</string>
+    <string name="cant_find_input">There are no contacts that fit the search criteria</string>
+
     <string name="garbageCan">Delete Key</string>
     <string name="name_view">Name:</string>
     <string name="input_name_string">Enter Name</string>

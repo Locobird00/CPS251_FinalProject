@@ -1,6 +1,7 @@
 package com.locobird00.contactsproject.ui.main
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -54,11 +55,21 @@ class MainFragment : Fragment() {
                 viewModel.insertContact(contact)
                 clearFields()
             } else {
-                Toast.makeText(activity, "Incomplete Information", Toast.LENGTH_LONG).show()
+                Toast.makeText(activity,
+                    resources.getString(R.string.incomplete_info_string),
+                    Toast.LENGTH_LONG).show()
             }
         }
 
-        binding.findBtn.setOnClickListener { viewModel.findContact(binding.nameInput.text.toString()) }
+        binding.findBtn.setOnClickListener {
+            val name = binding.nameInput.text.toString()
+
+            if (name.isEmpty())
+                Toast.makeText(activity,
+                    resources.getString(R.string.find_input),
+                    Toast.LENGTH_LONG).show()
+            else
+                viewModel.findContact(name) }
 
         binding.ascBtn.setOnClickListener { viewModel.sortAsc() }
 
@@ -76,11 +87,13 @@ class MainFragment : Fragment() {
         viewModel.getSearchResults().observe(viewLifecycleOwner, Observer { contacts ->
 
             contacts?.let {
+
                 if (it.isNotEmpty()) {
                     adapter?.setContactList(it)
-                } else {
-                    Toast.makeText(activity, "You must enter a search criteria in the name field", Toast.LENGTH_LONG).show()
-                }
+                } else
+                    Toast.makeText(activity,
+                        resources.getString(R.string.cant_find_input),
+                        Toast.LENGTH_LONG).show()
             }
         })
 
