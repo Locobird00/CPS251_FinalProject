@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">ContactsProject</string>
+
+    <string name="not_assigned">Not assigned</string>
+    <string name="add_string">Add</string>
+    <string name="find_string">Find</string>
+    <string name="asc_string">Asc</string>
+    <string name="desc_string">Desc</string>
+
+    <string name="garbageCan">Delete Key</string>
+    <string name="name_view">Name:</string>
+    <string name="input_name_string">Enter Name</string>
+    <string name="phone_view">Phone:</string>
+    <string name="input_phone_string">Enter Phone Number</string>
+</resources>
